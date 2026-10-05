@@ -1,0 +1,299 @@
+body{
+    background-image: url("déco/fond.png");
+    font-family: 'EB Garamond', serif;
+    color: #e6e1d6;
+
+}
+h1,h2,h3{
+    font-family: 'Cinzel', serif;
+    color: #d4ba75;
+
+}
+
+ a {
+     font-family: 'Cinzel', serif;
+     color: #d4ba75;
+}
+
+.navbar {
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    font-family: 'Cinzel', serif;
+    font-size: 190%;
+    color: #d4ba75;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem 0 2rem;
+    box-sizing: border-box;
+    justify-content: space-between;
+    
+}
+.navbar a,
+.produit .prix a {
+    display: inline-block;
+}
+
+a{cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    border-radius: 1rem;}
+
+.navbar a:hover {
+    outline: 0.15rem solid #d4ba75;
+    outline-offset: 0.5rem;}
+
+.produit a:hover {
+    outline: 0.15rem solid #f6f4ee;
+    outline-offset: 0;}
+
+.lune a, .maelle a, .beret a, .simon a, .maelle_displate a,#vinyle a, #vetements a, #figurine a, #affiche a {
+    border-radius: 0 0 1rem 1rem;
+}
+.catégorie a:hover {
+    outline: 0.15rem solid #f6f4ee;
+    outline-offset: 0;}
+
+
+.produit .prix a:hover {
+    outline: 0.2rem solid #f6f4ee;
+    outline-offset: 0.5rem;}
+.produit .prix a {
+    border-radius:0.5rem;}
+
+.navbar a {
+   border-color: black}
+
+
+
+.navbar img {
+    width:5rem;
+}
+
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    background-color: black;
+    margin-top: 3.2rem;
+    overflow: hidden;
+}
+
+
+
+.hero video {
+    width: 100%;
+    height: auto;
+}
+
+
+.logo {
+    position: absolute;
+    top: 1%;
+    left: 49%;
+    transform: translateX(-50%);
+
+}
+
+
+.overlay-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.text_teasing{
+   font-size: 150%;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    display: flex;
+    gap: 5rem;
+
+}
+.text_teasing h2{
+    font-size: 200%;
+    margin-bottom: 1rem;
+    line-height: 4rem;
+    color: #c8c1bc;
+}
+.text_teasing h1{
+    font-size: 280%;
+    margin-bottom: 1rem;
+    line-height: 4rem;
+
+}
+.text_teasing img {
+    max-width: 50rem;
+}
+.catégorie_titre {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.catégorie_titre img {
+    width: 100%;
+    height: auto;
+}
+.catégorie_titre h2 {
+    font-size: 6rem;
+    position: absolute;
+    top: 53%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.catégorie{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.catégorie img {
+    width: 100%;
+}
+
+#vinyle, #vetements, #figurine, #affiche {
+    border: 0.1rem solid #d4ba75;
+    border-radius: 0 0 1rem 1rem;
+    background-color: #1d1c1c;
+    display: flex;
+    flex-direction: column;
+    max-width: 45rem;
+}
+
+.catégorie p, .catégorie h3 {
+    font-size: 200%;
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+}
+#produit_titre {
+    position: relative;
+    width: 100%;
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+#produit_titre img {
+    width: 100%;
+    height: auto;
+}
+
+#produit_titre h2 {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+    margin: 0;
+    text-align: center;
+    max-width: 30rem;
+}
+
+
+.produit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.produit > div {
+    position: relative;
+}
+
+.produit-lien-carte {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.produit .prix a {
+    position: relative;
+    z-index: 2;
+}
+
+.produit img {
+    width: 100%;
+}
+
+.boxset_2, .boxset_1, .lune, .maelle, .beret, .jersey, .maelle_displate, .simon {
+    border: 0.1rem solid #d4ba75;
+    border-radius: 1rem;
+    background-color: #1d1c1c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    max-width: 40rem;
+}
+
+.lune, .maelle, .beret, .simon, .maelle_displate {
+    border-radius: 0 0 1rem 1rem;
+}
+
+.jersey {
+    height: 50rem;
+}
+
+.produit p, .produit h3, .produit span {
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+}
+
+.produit p {
+    font-size: 190%;
+    color: #050505;
+    background-color: #d4ba75;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+.produit span {
+    font-size: 120%;
+}
+
+.produit h3 {
+    padding: 0;
+}
+
+.star{
+    width: 2rem;
+    height: 2rem;
+}
+.star.filled{
+    fill:#d4ba75;
+}
+.avis-stars {
+    display: flex;
+    align-items: center;
+}
+
+button {cursor: pointer;
+transition: box-shadow 0.3s ease; }
+button:hover {
+    box-shadow: 0 0 0 4px #000000}
+
+
+footer{
+    background-color: #1d1c1c;
+    padding:2rem;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap:10rem;
+    line-height: 2rem;
+    justify-content: space-between;
+}

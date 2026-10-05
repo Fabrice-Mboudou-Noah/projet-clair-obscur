@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - Clair Obscur : Expedition 33</title>
+    <link rel="stylesheet" href="../../Assets/style.css">
+    <link rel="stylesheet" href="../../Assets/reset.css">
+    <link rel="stylesheet" href="../../Assets/variable.css">
+    <link rel="stylesheet" href="../../Assets/style_contact.css">
+</head>
+<body>
+<header>
+<nav class="navbar">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../index.html#produit_titre">Catalogue</a>
+    <a href="../../index.html#titre-categories">Catégorie</a>
+    <a href="../contact/contact.html">Contact</a>
+    <a href="../panier/panier.html"><img src="../../Assets/déco/panier.png" alt="Accéder à votre panier"></a>
+</nav>
+</header>
+
+<main role="main">
+    <section class="formu">
+    <h1>Contacter le support</h1>
+    <p>Remplissez ce formulaire et notre équipe vous répondra sous 24h. Les champs marqués d'un astérisque sont obligatoires.</p>
+        <form action="https://formspree.io/f/xoejqlyg" method="POST">
+
+            <div class="nom">
+                <label for="nom">Nom complet </label>
+                <input type="text" id="nom" name="nom" required aria-required="true" autocomplete="name">
+            </div>
+
+            <div class="mail">
+                <label for="email">Adresse e-mail </label>
+                <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+            </div>
+
+            <div class="message">
+                <label for="message">Votre message </label>
+                <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+                <button type="submit"> Envoyer la demande</button>
+            </div>
+
+
+
+        </form>
+    </section>
+</main>
+
+<footer role="contentinfo">
+    <div id="support">
+        <h2>Support</h2>
+        <a href="../contact/contact.html">Contactez-moi</a>
+        <br>
+        <a href="mailto:contact@expedition33.fr">Envoyer un mail</a>
+    </div>
+    <div id="adresse">
+        <h2>Adresse</h2>
+        <a href="https://maps.app.goo.gl/DYTPSFranr7m7YAs8">48°52'36.0"S 123°23'36.0"W</a>
+    </div>
+    <div id="tél">
+        <h2>Téléphone</h2>
+        <a href="tel:+330895234069">08 95 234 069</a>
+    </div>
+    <div id="gift">
+        <h2>Gift</h2>
+        <a href="../cadeau/carte-cadeau.html">Gift card</a>
+    </div>
+    <div id="secure">
+        <h2>Secure payments</h2>
+        <img src="../../Assets/déco/gemini-svg.svg" alt="Moyens de paiements sécurisés acceptés">
+    </div>
+</footer>
+</body>
+</html>

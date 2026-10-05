@@ -1,0 +1,138 @@
+//<script>
+
+function getCookie(name)
+{
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+    if(arr=document.cookie.match(reg))
+        return unescape(arr[2]);
+    else
+    return null;
+}
+
+function showAnnounce(item,fontClass,link_text_color,message_color,button_color,button_text_color,open_way,banner_size,button_size,text_size){
+    var announceContent = "";
+    if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            if(item.type==="1"){
+            announceContent=
+            "<a onclick='gdpr_addClickTimes(1)' href='"+item.link+"' target='"+open_way+"'>"+
+                "<div class='giraffly_announce_div' style='height:"+banner_size+"px;display:inline-flex;align-items: center'>"+
+                    "<div class='giraffly_announce_first' style='padding:0 30px; display: inline-block;'>"+ 
+                        "<span style='color:"+message_color+"; font-family:"+fontClass+"'>"+item.text+"</span>"+
+                    "</div>"+
+                "</div>"+
+            "</a>";
+            }else if(item.type==="2"){
+                announceContent=
+                    "<div class='giraffly_announce_div' style='height:"+banner_size+"px;display:inline-flex;align-items: center'>"+
+                        "<div class='giraffly_announce_first' style='padding:0 30px; display: inline-block;margin-right: 10px;color:"+message_color+";font-family:"+fontClass+"'>"+
+                            item.text+
+                        "</div>"+
+                        "<div class='giraffly_announce_two' style='display: inline-block; margin-left: 10px; padding:"+button_size+"px; border-radius:3px; background-color:"+button_color+"'>"+
+                            "<a onclick='gdpr_addClickTimes(1)' style='color:"+button_text_color+";text-decoration:none;font-family:"+fontClass+"' href='"+item.link+"' target='"+open_way+"'>"+item.button+"</a>"+
+                        "</div>"+
+                    "</div>"
+            }else if(item.type==="3"){
+                announceContent=
+                    "<div class='giraffly_announce_div' style='height:"+banner_size+"px;display:inline-flex;align-items: center'>"+
+                        "<div class='giraffly_announce_first' style='padding:0 30px; display: inline-block;margin-right: 10px;color:"+message_color+";font-family:"+fontClass+"'>"+
+                            item.text+
+                        "</div>"+
+                        "<div class='giraffly_announce_two'>"+
+                            "<a onclick='gdpr_addClickTimes(1)' style='display: inline-block; margin-left: 10px; color:"+link_text_color+";text-decoration:underline;font-family:"+fontClass+"' href='"+item.link+"' target='"+open_way+"'>"+item.link_text+"</a>"+
+                        "</div>"+
+                    "</div>"
+            }else if(item.type==="4"){
+                announceContent=
+                    "<div class='giraffly_announce_div' style='height:"+banner_size+"px;display:inline-flex;align-items: center'>"+
+                        "<div onclick='gdpr_addClickTimes(1)' class='giraffly_announce_first' style='padding:0 30px; display: inline-block;color:"+message_color+";font-family:"+fontClass+"'>"+
+                            item.text+
+                        "</div>"+
+                    "</div>";
+            }
+    }else{
+        if(item.type==="1"){
+                announceContent=
+                "<a onclick='gdpr_addClickTimes(1)' href='"+item.link+"' target='"+open_way+"'>"+
+                    "<div class='giraffly_announce_div' style='height:"+banner_size+"px;display:inline-flex;align-items: center'>"+
+                        "<div class='giraffly_announce_first' style='display: inline-block;'>"+
+                            "<span style='color:"+message_color+"; font-size:"+text_size+"px; font-family:"+fontClass+"'>"+item.text+"</span>"+
+                        "</div>"+
+                    "</div>"+
+                "</a>";
+        }else if(item.type==="2"){
+                announceContent=
+                    "<div class='giraffly_announce_div' style='height:"+banner_size+"px;display:inline-flex;align-items: center'>"+
+                        "<div class='giraffly_announce_first' style='display: inline-block;margin-right: 10px; font-size:"+text_size+"px;padding:4px;color:"+message_color+";font-family:"+fontClass+"'>"+
+                            item.text+
+                        "</div>"+
+                        "<div class='giraffly_announce_two' style='display: inline-block; margin-left: 10px;  padding:"+button_size+"px; border-radius:3px; background-color:"+button_color+"'>"+
+                            "<a onclick='gdpr_addClickTimes(1)' style='font-size:"+text_size+"px;color:"+button_text_color+";text-decoration:none;font-family:"+fontClass+"' href='"+item.link+"' target='"+open_way+"'>"+item.button+"</a>"+
+                        "</div>"+
+                    "</div>"
+        }else if(item.type==="3"){
+                announceContent=
+                    "<div class='giraffly_announce_div' style='height:"+banner_size+"px;display:inline-flex;align-items: center'>"+
+                        "<div class='giraffly_announce_first' style='display: inline-block;margin-right: 10px; font-size:"+text_size+"px;padding:4px;color:"+message_color+";font-family:"+fontClass+"'>"+
+                            item.text+
+                        "</div>"+
+                        "<div class='giraffly_announce_two' style='display: inline-block; margin-left: 10px;'>"+
+                            "<a onclick='gdpr_addClickTimes(1)' style='font-size:"+text_size+"px;color:"+link_text_color+";padding:4px;text-decoration:underline;font-family:"+fontClass+"' href='"+item.link+"' target='"+open_way+"'>"+item.link_text+"</a>"+
+                        "</div>"+
+                    "</div>"
+        }else if(item.type==="4"){
+                announceContent=
+                    "<div class='giraffly_announce_div' style='height:"+banner_size+"px;display:inline-flex;align-items: center'>"+
+                        "<div onclick='gdpr_addClickTimes(1)' class='giraffly_announce_first' style='display: inline-block; font-size:"+text_size+"px;padding:4px;color:"+message_color+";font-family:"+fontClass+"'>"+
+                            item.text+
+                        "</div>"+
+                    "</div>";
+        }
+    }
+    
+    return announceContent;
+}
+
+
+
+function gdprClose(){
+    gdpr_addClickTimes(2);
+    if (window.location.search !== "?isPreview=true") {
+        localStorage.setItem("giraffly-gdpr-url", window.Shopify.shop);
+        if(document.getElementsByClassName('giraffly_gdpr')[0]!=undefined){
+            document.getElementsByClassName('giraffly_gdpr')[0].style.display="none";
+        }
+        if(document.getElementsByClassName('giraffly_gdpr_3')[0]!=undefined){
+            document.getElementsByClassName('giraffly_gdpr_3')[0].style.display="none";
+        }
+    }
+}
+
+
+function gdprAnnounceClose(){
+    if (document.getElementsByClassName('giraffly_announce')[0]!=undefined) {
+        document.getElementsByClassName('giraffly_announce')[0].style.display="none";
+    }
+    if(document.getElementsByClassName('announce_add_empty')[0]!=undefined){
+        document.getElementsByClassName('announce_add_empty')[0].style.display="none";
+    }
+    document.cookie = "gdpr_announce_cookie=gdpr_announce_cookie_existed; path=/;";
+}
+
+function gdpr_addClickTimes(type){
+    var url = 'https://api-gdpr.giraffly.com/api/v1/addClickTimes?c=5451bacabfb6e3420035269267fbba8dda16ce6b&shop=laced-records-eu.myshopify.com';
+    var id = '0';
+    fetch(url, {
+        method: 'post',
+        headers: {
+            'Content-type': 'application/json',
+            "Access-Control-Request-Headers": "*",
+            "Access-Control-Request-Method": "*"
+        },
+        body: JSON.stringify({
+            id: id,
+            type:type
+        })
+    }).then(json => {
+
+    });
+}

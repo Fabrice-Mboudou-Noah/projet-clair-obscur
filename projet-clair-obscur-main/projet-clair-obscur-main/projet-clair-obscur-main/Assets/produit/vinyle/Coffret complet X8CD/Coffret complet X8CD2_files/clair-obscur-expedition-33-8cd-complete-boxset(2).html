@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!-- saved from url=(0174)https://www.lacedrecords.co/web-pixels@5982071ew7ea472e3p69b68784m2150dfea/custom/web-pixel-251920760@2/sandbox/modern/products/clair-obscur-expedition-33-8cd-complete-boxset -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Clair Obscur: Expedition 33 (Complete X8CD Boxset) – Laced Records</title>
+    <script src="./s5982071ew7ea472e3p69b68784m2150dfeam.js.téléchargement"></script>
+
+    <script type="text/javascript">
+  (function(shopify) {shopify.extend('WebPixel::Render', function(api) {
+var analytics=api.analytics,browser=api.browser,init=api.init;
+// ============================================================
+// GA4 — Shopify Customer Event Pixel
+// Measurement ID: G-40FEVDPJV0
+// Loader: gtag.js (correct for G- IDs; do NOT use the gtm.js IIFE)
+// No PII is sent — Google Analytics policy prohibits it.
+// ============================================================
+
+const GA4_ID = 'G-40FEVDPJV0';
+const DEBUG = true; // set false once verified in production
+
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+
+// ---- Consent Mode v2 -------------------------------------------------
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  wait_for_update: 500,
+});
+
+// Shopify's pixel manager already blocks this pixel from loading in
+// consent-required markets until permission is granted. So an ABSENT or
+// undefined flag means "no gate in this region" -> treat as granted.
+// Only an explicit `false` denies.
+function pushConsent(consent) {
+  const analyticsOk = consent?.analyticsProcessingAllowed !== false;
+  const marketingOk = consent?.marketingAllowed !== false;
+
+  if (DEBUG) console.log('[GA4 pixel] consent ->', { analyticsOk, marketingOk, raw: consent });
+
+  gtag('consent', 'update', {
+    analytics_storage: analyticsOk ? 'granted' : 'denied',
+    ad_storage: marketingOk ? 'granted' : 'denied',
+    ad_user_data: marketingOk ? 'granted' : 'denied',
+    ad_personalization: marketingOk ? 'granted' : 'denied',
+  });
+}
+
+// Initial state — custom pixels read this from `init`, NOT from `api`.
+try {
+  pushConsent(typeof init !== 'undefined' ? init.customerPrivacy : undefined);
+} catch (e) {
+  console.warn('[GA4 pixel] init.customerPrivacy unavailable, granting:', e);
+  pushConsent(undefined);
+}
+
+// Updates — `customerPrivacy` is a top-level sandbox global in custom pixels.
+try {
+  if (typeof customerPrivacy !== 'undefined') {
+    customerPrivacy.subscribe('visitorConsentCollected', (event) => {
+      pushConsent(event?.customerPrivacy);
+    });
+  } else if (DEBUG) {
+    console.log('[GA4 pixel] customerPrivacy.subscribe not present in this sandbox');
+  }
+} catch (e) {
+  console.warn('[GA4 pixel] consent subscribe failed:', e);
+}
+
+// ---- Load gtag.js ----------------------------------------------------
+const gaScript = document.createElement('script');
+gaScript.async = true;
+gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+gaScript.onerror = () => console.error('[GA4 pixel] gtag.js failed to load');
+document.head.appendChild(gaScript);
+
+gtag('js', new Date());
+gtag('config', GA4_ID, {
+  send_page_view: false, // fired manually below with real storefront URL
+  debug_mode: DEBUG,     // shows hits in GA4 DebugView while testing
+});
+
+// ---- Helpers ---------------------------------------------------------
+const num = (v) => (v === null || v === undefined ? undefined : Number(v));
+
+// Strip a Shopify GID down to its numeric id: gid://shopify/Order/123 -> 123
+const gidNum = (gid) => {
+  if (!gid) return undefined;
+  const s = String(gid);
+  const parts = s.split('/');
+  return parts[parts.length - 1] || s;
+};
+
+// Checkout / order line items
+function mapCheckoutItems(lineItems) {
+  return (lineItems || []).map((li, i) => ({
+    item_id: li.variant?.sku || li.variant?.id,
+    item_name: li.variant?.product?.title || li.title,
+    item_variant: li.variant?.title,
+    item_brand: li.variant?.product?.vendor,
+    item_category: li.variant?.product?.type,
+    price: num(li.variant?.price?.amount),
+    quantity: li.quantity,
+    index: i,
+  }));
+}
+
+// Cart lines (cart_viewed, product_added_to_cart)
+function mapCartLines(lines) {
+  return (lines || []).map((line, i) => ({
+    item_id: line.merchandise?.sku || line.merchandise?.id,
+    item_name: line.merchandise?.product?.title || line.merchandise?.title,
+    item_variant: line.merchandise?.title,
+    item_brand: line.merchandise?.product?.vendor,
+    item_category: line.merchandise?.product?.type,
+    price: num(line.merchandise?.price?.amount),
+    quantity: line.quantity,
+    index: i,
+  }));
+}
+
+// Shared page context — the sandbox's own document.location is useless,
+// always read from event.context.
+function pageCtx(event) {
+  return {
+    page_location: event.context?.document?.location?.href,
+    page_title: event.context?.document?.title,
+    page_referrer: event.context?.document?.referrer,
+  };
+}
+
+function send(name, params) {
+  if (DEBUG) console.log('[GA4 pixel] ->', name, params);
+  gtag('event', name, params);
+}
+
+// ---- page_viewed -> page_view ---------------------------------------
+analytics.subscribe('page_viewed', (event) => {
+  send('page_view', pageCtx(event));
+});
+
+// ---- collection_viewed -> view_item_list ----------------------------
+analytics.subscribe('collection_viewed', (event) => {
+  const c = event.data?.collection;
+  send('view_item_list', {
+    ...pageCtx(event),
+    item_list_id: c?.id,
+    item_list_name: c?.title,
+    items: (c?.productVariants || []).map((v, i) => ({
+      item_id: v.sku || v.id,
+      item_name: v.product?.title || v.title,
+      item_variant: v.title,
+      item_brand: v.product?.vendor,
+      item_category: v.product?.type,
+      price: num(v.price?.amount),
+      index: i,
+    })),
+  });
+});
+
+// ---- product_viewed -> view_item ------------------------------------
+analytics.subscribe('product_viewed', (event) => {
+  const v = event.data?.productVariant;
+  send('view_item', {
+    ...pageCtx(event),
+    currency: v?.price?.currencyCode,
+    value: num(v?.price?.amount),
+    items: [{
+      item_id: v?.sku || v?.id,
+      item_name: v?.product?.title || v?.title,
+      item_variant: v?.title,
+      item_brand: v?.product?.vendor,
+      item_category: v?.product?.type,
+      price: num(v?.price?.amount),
+      quantity: 1,
+    }],
+  });
+});
+
+// ---- product_added_to_cart -> add_to_cart ---------------------------
+analytics.subscribe('product_added_to_cart', (event) => {
+  const line = event.data?.cartLine;
+  send('add_to_cart', {
+    ...pageCtx(event),
+    currency: line?.cost?.totalAmount?.currencyCode || line?.merchandise?.price?.currencyCode,
+    value: num(line?.cost?.totalAmount?.amount),
+    items: mapCartLines([line]),
+  });
+});
+
+// ---- cart_viewed -> view_cart ---------------------------------------
+analytics.subscribe('cart_viewed', (event) => {
+  const cart = event.data?.cart;
+  send('view_cart', {
+    ...pageCtx(event),
+    currency: cart?.cost?.totalAmount?.currencyCode,
+    value: num(cart?.cost?.totalAmount?.amount),
+    items: mapCartLines(cart?.lines),
+  });
+});
+
+// ---- checkout_started -> begin_checkout -----------------------------
+analytics.subscribe('checkout_started', (event) => {
+  const co = event.data?.checkout;
+  send('begin_checkout', {
+    ...pageCtx(event),
+    currency: co?.currencyCode,
+    value: num(co?.totalPrice?.amount),
+    coupon: co?.discountApplications?.[0]?.title,
+    items: mapCheckoutItems(co?.lineItems),
+  });
+});
+
+// ---- checkout_shipping_info_submitted -> add_shipping_info ----------
+analytics.subscribe('checkout_shipping_info_submitted', (event) => {
+  const co = event.data?.checkout;
+  send('add_shipping_info', {
+    ...pageCtx(event),
+    currency: co?.currencyCode,
+    value: num(co?.totalPrice?.amount),
+    shipping_tier: co?.shippingLine?.title,
+    items: mapCheckoutItems(co?.lineItems),
+  });
+});
+
+// ---- payment_info_submitted -> add_payment_info ---------------------
+analytics.subscribe('payment_info_submitted', (event) => {
+  const co = event.data?.checkout;
+  send('add_payment_info', {
+    ...pageCtx(event),
+    currency: co?.currencyCode,
+    value: num(co?.totalPrice?.amount),
+    items: mapCheckoutItems(co?.lineItems),
+  });
+});
+
+// ---- checkout_completed -> purchase ---------------------------------
+// transaction_id MUST match whatever any other GA4 install sends, or GA4
+// counts the order twice. Numeric order id is the most common convention.
+analytics.subscribe('checkout_completed', (event) => {
+  const co = event.data?.checkout;
+  send('purchase', {
+    ...pageCtx(event),
+    transaction_id: gidNum(co?.order?.id) || co?.token,
+    currency: co?.currencyCode,
+    value: num(co?.totalPrice?.amount),
+    tax: num(co?.totalTax?.amount),
+    shipping: num(co?.shippingLine?.price?.amount),
+    coupon: co?.discountApplications?.[0]?.title,
+    items: mapCheckoutItems(co?.lineItems),
+  });
+});
+
+// ---- search_submitted -> search -------------------------------------
+analytics.subscribe('search_submitted', (event) => {
+  send('search', {
+    ...pageCtx(event),
+    search_term: event.data?.searchResult?.query,
+  });
+});
+});})(self.webPixelsManager.createShopifyExtend('251920760', 'custom'));
+
+</script>
+
+  <script async="" src="./js(1)"></script></head>
+  <body>
+
+</body></html>

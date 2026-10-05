@@ -1,0 +1,57 @@
+.formu {
+    margin: 10rem auto 0;
+    padding: 2rem;
+    width: 90%;
+    max-width: 60rem;
+    background-color: #2a2a2a;
+    border-radius: 1rem;
+    min-height: 50vh;
+}
+
+.formu form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+main h1 {
+    font-size: 2.5rem;
+}
+
+.nom{
+    margin-top: 1.5rem;
+}
+
+
+main p,
+main label {
+    font-size: 1.25rem;
+}
+.formu label {
+    text-align: left;
+}
+
+.formu input,
+.formu textarea {
+    width: 100%;
+    border: 0.2rem solid #d4ba75;
+    border-radius: 1rem;
+}
+.formu input{
+    border-radius: 0.5rem;
+}
+
+.formu button {
+    align-self: flex-start;
+    border: 0.2rem solid #d4ba75;
+    border-radius: 0.5rem;
+    background-color: #2a2a2a;
+    color: #f6f4ee;
+}
+.message button {margin-top:1rem;}
