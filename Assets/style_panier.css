@@ -1,0 +1,89 @@
+main {
+    width: 95%;
+    box-sizing: border-box;
+    padding: 2rem;
+    margin: 10rem auto 2rem;
+    background-color: #2a2a2a;
+    border-radius: 1rem;
+}
+
+.article {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.5rem;
+}
+
+.article h2 {
+    max-width: 15rem;
+    font-size: 1.5rem;
+}
+
+.article img {
+    width: fit-content;
+    max-width: 13rem;
+}
+
+input {
+    width: 3rem;
+    height: 2rem;
+    border: 0.15rem solid #b0b0b0;
+    border-radius: 0.5rem;
+}
+
+.panier {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 2rem;
+}
+
+.grospanier {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.àpayer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.alignepanier {
+    margin-top:5rem;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nbrarticle,
+.livraison,
+.total {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    font-size: 2rem;
+}
+button {
+    width: fit-content;
+}
+
+@media (max-width: 600px) {
+    .grospanier {
+        flex-direction: column;
+    }
+
+    .panier,
+    .alignepanier {
+        width: 100%;
+    }
+
+    .article {
+        gap: 1rem;
+    }
+}
