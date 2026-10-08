@@ -33,7 +33,7 @@ h1,h2,h3{
     
 }
 .navbar a,
-.produit .prix a {
+.prix a {
     display: inline-block;
 }
 
@@ -57,11 +57,18 @@ a{cursor: pointer;
     outline-offset: 0;}
 
 
-.produit .prix a:hover {
+.prix a:hover {
     outline: 0.2rem solid #f6f4ee;
     outline-offset: 0.5rem;}
-.produit .prix a {
+.prix a {
     border-radius:0.5rem;}
+.prix p{
+    font-size: 190%;
+    color: #050505;
+    background-color: #d4ba75;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
 
 .navbar a {
    border-color: black}
@@ -218,7 +225,7 @@ a{cursor: pointer;
     z-index: 1;
 }
 
-.produit .prix a {
+.prix a {
     position: relative;
     z-index: 2;
 }
@@ -247,19 +254,13 @@ a{cursor: pointer;
     height: 50rem;
 }
 
-.produit p, .produit h3, .produit span {
+.produit h3, .produit span {
     padding: 1rem;
     margin: 0;
     text-align: center;
 }
 
-.produit p {
-    font-size: 190%;
-    color: #050505;
-    background-color: #d4ba75;
-    padding: 0.5rem;
-    border-radius: 1rem;
-}
+
 
 .produit span {
     font-size: 120%;
