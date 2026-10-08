@@ -61,7 +61,14 @@ a{cursor: pointer;
     outline: 0.2rem solid #f6f4ee;
     outline-offset: 0.5rem;}
 .prix a {
-    border-radius:0.5rem;}
+    border-radius: 0.5rem;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
 .prix p{
     font-size: 190%;
     color: #050505;

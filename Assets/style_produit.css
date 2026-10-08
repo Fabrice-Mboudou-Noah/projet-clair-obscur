@@ -11,19 +11,22 @@ main {
 }
 
 
-.image_produit .autre_image{
-    width:50%;
-}
 .image_produit {
     display: flex;
     flex-wrap: wrap;
-    max-width: 40rem;
+    width: 50%;
+}
+.image_produit img {
+    width: 100%;
+}
+.image_produit .autre_image {
+    width: 49%;
 }
 .présentation {
     position: sticky;
     top: 5rem;
     padding: 2rem;
-    max-width: 45rem;
+    width: 50%;
     background-color: #1d1c1c;
     border-radius: 2rem;
     height: fit-content;
@@ -54,3 +57,7 @@ input {
 .produit_recommandé .produit .lune {
     width: 20%;
 }
+
+
+
+
