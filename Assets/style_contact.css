@@ -55,3 +55,30 @@ main label {
     color: #f6f4ee;
 }
 .message button {margin-top:1rem;}
+
+/* Mobile - référence : iPhone 16 Pro Max */
+@media (max-width: 600px) {
+    .formu {
+        width: 100%;
+        margin: 5rem auto 0;
+        padding: 1rem;
+        min-height: 0;
+    }
+
+    .formu h1 {
+        font-size: 1.7rem;
+    }
+
+    .formu button {
+        font-size: 1.1rem;
+    }
+}
+
+/* Tablette - référence : iPad Pro 13 pouces */
+@media (min-width: 601px) and (max-width: 1100px) {
+    .formu {
+        width: 90%;
+        margin: 7rem auto 0;
+        padding: 1.5rem;
+    }
+}

@@ -9,6 +9,7 @@ main {
 
 .article {
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
@@ -76,17 +77,84 @@ button {
     border-radius: 1rem;
 }
 
+/* Mobile - référence : iPhone 16 Pro Max */
 @media (max-width: 600px) {
-    .grospanier {
-        flex-direction: column;
+    main {
+        width: 100%;
+        margin: 5rem auto 1rem;
+        padding: 1rem;
     }
 
-    .panier,
-    .alignepanier {
+    .article {
+        flex-direction: column;
+        gap: 0.75rem;
+        font-size: 1rem;
+    }
+
+    .article img {
+        width: 5rem;
+        max-width: 5rem;
+    }
+
+    .article h2 {
         width: 100%;
+        max-width: none;
+        font-size: 1rem;
+    }
+
+    .nbrarticle,
+    .livraison,
+    .total {
+        gap: 0.5rem;
+        font-size: 1.25rem;
+    }
+
+    button {
+        font-size: 1.25rem;
+    }
+}
+
+/* Tablette - référence : iPad Pro 13 pouces */
+@media (min-width: 601px) and (max-width: 1100px) {
+    main {
+        width: 100%;
+        margin: 7rem auto 2rem;
+        padding: 1.5rem;
+    }
+
+    .panier {
+        width: 65%;
+    }
+
+    .alignepanier {
+        width: 30%;
     }
 
     .article {
         gap: 1rem;
+        font-size: 1.2rem;
     }
+
+    .article img {
+        width: 9rem;
+        max-width: 9rem;
+    }
+
+    .article h2 {
+        font-size: 1.2rem;
+    }
+
+    .nbrarticle,
+    .livraison,
+    .total {
+        gap: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+.article i {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
 }
